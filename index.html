@@ -1,211 +1,25 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
   <head>
-
-    <meta charset="UTF-8" />
-
-    <style>
-
-      body {
-
-        margin: 0;
-
-        background: darkgrey;
-
-        background-size: 400% 400%;
-
-        animation: gradient 15s ease infinite;
-
-        height: 100vh;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;    
-
-      }
-
-      .loader {
-
-        border: 16px solid #f3f3f3;
-
-        border-radius: 50%;
-
-        border-top: 16px solid #3498db;
-
-        width: 120px;
-
-        height: 120px;
-
-        position: absolute;
-
-        z-index : -999;
-
-        -webkit-animation: spin 2s linear infinite;
-
-        animation: spin 2s linear infinite;
-
-      }
-
-      
-
-      @-webkit-keyframes spin {
-
-        0% { -webkit-transform: rotate(0deg); }
-
-        100% { -webkit-transform: rotate(360deg); }
-
-      }
-
-      
-
-      @keyframes spin {
-
-        0% { transform: rotate(0deg); }
-
-        100% { transform: rotate(360deg); }
-
-      }
-
-      </style>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Farpo place</title>
+    <meta name="description" content="A place of Farpo">
+    <meta name="generator" content="VitePress v2.0.0-alpha.14">
+    <link rel="preload stylesheet" href="/assets/style.BwBYVisA.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    
+    <script type="module" src="/assets/app.CKcjpd4O.js"></script>
+    <link rel="preload" href="/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/assets/chunks/theme.CVyphTka.js">
+    <link rel="modulepreload" href="/assets/chunks/framework.CWAOaPf4.js">
+    <link rel="modulepreload" href="/assets/index.md.C3DF98gp.lean.js">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
   </head>
-
   <body>
-
-    <div class="loader"></div>
-
-    <script>
-
-        // the following function keeps track of all AudioContexts and resumes them on the first user
-
-        // interaction with the page. If the function is called and all contexts are already running,
-
-        // it will remove itself from all event listeners.
-
-        (function () {
-
-            // An array of all contexts to resume on the page
-
-            const audioContextList = [];
-
-
-
-            // An array of various user interaction events we should listen for
-
-            const userInputEventNames = [
-
-                "click",
-
-                "contextmenu",
-
-                "auxclick",
-
-                "dblclick",
-
-                "mousedown",
-
-                "mouseup",
-
-                "pointerup",
-
-                "touchend",
-
-                "keydown",
-
-                "keyup",
-
-            ];
-
-
-
-            // A proxy object to intercept AudioContexts and
-
-            // add them to the array for tracking and resuming later
-
-            self.AudioContext = new Proxy(self.AudioContext, {
-
-                construct(target, args) {
-
-                    const result = new target(...args);
-
-                    audioContextList.push(result);
-
-                    return result;
-
-                },
-
-            });
-
-
-
-            // To resume all AudioContexts being tracked
-
-            function resumeAllContexts(_event) {
-
-                let count = 0;
-
-
-
-                audioContextList.forEach((context) => {
-
-                    if (context.state !== "running") {
-
-                        context.resume();
-
-                    } else {
-
-                        count++;
-
-                    }
-
-                });
-
-
-
-                // If all the AudioContexts have now resumed then we unbind all
-
-                // the event listeners from the page to prevent unnecessary resume attempts
-
-                // Checking count > 0 ensures that the user interaction happens AFTER the game started up
-
-                if (count > 0 && count === audioContextList.length) {
-
-                    userInputEventNames.forEach((eventName) => {
-
-                        document.removeEventListener(eventName, resumeAllContexts);
-
-                    });
-
-                }
-
-            }
-
-
-
-            // We bind the resume function for each user interaction
-
-            // event on the page
-
-            userInputEventNames.forEach((eventName) => {
-
-                document.addEventListener(eventName, resumeAllContexts);
-
-            });
-
-        })();
-
-    </script>
-
-    <script type="module">
-
-        import init from '/out/orbit-bevy.js'
-
-        init();
-
-    </script>
-
-</body>
-
+    <div id="app"><div class="Layout" data-v-cbc1da5f><!--[--><!--]--><!--[--><span tabindex="-1" data-v-dcd89588></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-dcd89588>Skip to content</a><!--]--><!----><header class="VPNav" data-v-cbc1da5f data-v-f9f3be52><div class="VPNavBar" data-v-f9f3be52 data-v-cdb26227><div class="wrapper" data-v-cdb26227><div class="container" data-v-cdb26227><div class="title" data-v-cdb26227><div class="VPNavBarTitle" data-v-cdb26227 data-v-a0d6a7f8><a class="title" href="/" data-v-a0d6a7f8><!--[--><!--]--><!----><span data-v-a0d6a7f8>Farpo place</span><!--[--><!--]--></a></div></div><div class="content" data-v-cdb26227><div class="content-body" data-v-cdb26227><!--[--><!--]--><div class="VPNavBarSearch search" data-v-cdb26227><!----></div><!----><!----><div class="VPNavBarAppearance appearance" data-v-cdb26227 data-v-d81332fc><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-d81332fc data-v-28ee9d96 data-v-3128e29b><span class="check" data-v-3128e29b><span class="icon" data-v-3128e29b><!--[--><span class="vpi-sun sun" data-v-28ee9d96></span><span class="vpi-moon moon" data-v-28ee9d96></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-cdb26227 data-v-d2f6d3f1 data-v-a002f07b><!--[--><a class="VPSocialLink no-icon" href="https://github.com/farpo" aria-label="github" target="_blank" rel="me noopener" data-v-a002f07b data-v-9fb56db0><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://gitlab.nexusrealms.de/farpo" aria-label="gitlab" target="_blank" rel="me noopener" data-v-a002f07b data-v-9fb56db0><span class="vpi-social-gitlab"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-cdb26227 data-v-66d54412 data-v-8d689e4e><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-8d689e4e><span class="vpi-more-horizontal icon" data-v-8d689e4e></span></button><div class="menu" data-v-8d689e4e><div class="VPMenu" data-v-8d689e4e data-v-70a321aa><!----><!--[--><!--[--><!----><div class="group" data-v-66d54412><div class="item appearance" data-v-66d54412><p class="label" data-v-66d54412>Appearance</p><div class="appearance-action" data-v-66d54412><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-66d54412 data-v-28ee9d96 data-v-3128e29b><span class="check" data-v-3128e29b><span class="icon" data-v-3128e29b><!--[--><span class="vpi-sun sun" data-v-28ee9d96></span><span class="vpi-moon moon" data-v-28ee9d96></span><!--]--></span></span></button></div></div></div><div class="group" data-v-66d54412><div class="item social-links" data-v-66d54412><div class="VPSocialLinks social-links-list" data-v-66d54412 data-v-a002f07b><!--[--><a class="VPSocialLink no-icon" href="https://github.com/farpo" aria-label="github" target="_blank" rel="me noopener" data-v-a002f07b data-v-9fb56db0><span class="vpi-social-github"></span></a><a class="VPSocialLink no-icon" href="https://gitlab.nexusrealms.de/farpo" aria-label="gitlab" target="_blank" rel="me noopener" data-v-a002f07b data-v-9fb56db0><span class="vpi-social-gitlab"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-cdb26227 data-v-d26ec232><span class="container" data-v-d26ec232><span class="top" data-v-d26ec232></span><span class="middle" data-v-d26ec232></span><span class="bottom" data-v-d26ec232></span></span></button></div></div></div></div><div class="divider" data-v-cdb26227><div class="divider-line" data-v-cdb26227></div></div></div><!----></header><!----><!----><div class="VPContent is-home" id="VPContent" data-v-cbc1da5f data-v-b2dbfe84><div class="VPHome" data-v-b2dbfe84 data-v-3a7c311c><!--[--><!--]--><div class="VPHero VPHomeHero" data-v-3a7c311c data-v-37b57aa3><div class="container" data-v-37b57aa3><div class="main" data-v-37b57aa3><!--[--><!--]--><!--[--><h1 class="heading" data-v-37b57aa3><span class="name clip" data-v-37b57aa3>Finally</span><span class="text" data-v-37b57aa3>a personal webpage</span></h1><p class="tagline" data-v-37b57aa3>I am a real programmer now</p><!--]--><!--[--><!--]--><div class="actions" data-v-37b57aa3><!--[--><div class="action" data-v-37b57aa3><a class="VPButton medium brand" href="https://nexusrealms.de" target="_blank" rel="noreferrer" data-v-37b57aa3 data-v-e5cb6968><!--[-->Nexusrealms<!--]--></a></div><div class="action" data-v-37b57aa3><a class="VPButton medium brand" href="https://modrinth.com/user/farpo" target="_blank" rel="noreferrer" data-v-37b57aa3 data-v-e5cb6968><!--[-->Modrinth<!--]--></a></div><!--]--></div><!--[--><!--]--></div><!----></div></div><!--[--><!--]--><!--[--><!--]--><!----><!--[--><!--]--><div class="vp-doc container" style="" data-v-3a7c311c data-v-2734747d><!--[--><div style="position:relative;" data-v-3a7c311c><div><p>Hello!<br> I&#39;m farpo. I code stuff for people, and sometimes for fun. I try to work on other projects, but i keep coming back to coding Minecraft mods.<br> I&#39;m one of the members of Nexusrealms. We try our hardest and sometimes complete a project.</p></div></div><!--]--></div></div></div><!----><!--[--><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"index.md\":\"C3DF98gp\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Farpo place\",\"description\":\"A place of Farpo\",\"base\":\"/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"sidebar\":[{\"text\":\"Examples\",\"items\":[{\"text\":\"Markdown Examples\",\"link\":\"/markdown-examples\"},{\"text\":\"Runtime API Examples\",\"link\":\"/api-examples\"}]}],\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/farpo\"},{\"icon\":\"gitlab\",\"link\":\"https://gitlab.nexusrealms.de/farpo\"}]},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false,\"additionalConfig\":{}}");</script>
+    
+  </body>
 </html>
